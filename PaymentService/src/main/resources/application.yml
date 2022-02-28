@@ -1,0 +1,9 @@
+server:
+  port: 2002
+spring:
+  application:
+    name: 'PAYMENT-SERVICE'
+eureka:
+  client:
+    service-url:
+      default-zone: 'http://localhost:8761/'
