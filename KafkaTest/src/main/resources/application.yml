@@ -1,0 +1,3 @@
+myapp:
+  kafka:
+    topic: 'myKafkaTest'

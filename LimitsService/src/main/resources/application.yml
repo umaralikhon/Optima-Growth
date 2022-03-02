@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: 'limits-service'
+  cloud:
+    config:
+      enabled: false
+server:
+  port:
+    3000
+limits-service:
+  min: 1
+  max: 1000
