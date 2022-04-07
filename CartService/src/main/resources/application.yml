@@ -1,9 +1,0 @@
-server:
-  port: 2001
-spring:
-  application:
-    name: 'CART-SERVICE'
-eureka:
-  client:
-    service-url:
-      default-zone: 'http://localhost:8761/'
