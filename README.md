@@ -1,2 +1,3 @@
-# Netflix
-Netflix-Eureka service discovery
+# Optima Growth
+**Optima Growth** - компания по разработке программного обеспечения, основной продукт которой - Optima Stock (O-Stock). 
+Это приложение корпоративного уровня для управления активами.  
