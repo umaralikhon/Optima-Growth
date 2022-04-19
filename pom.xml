@@ -9,12 +9,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>O-Stock</artifactId>
+    <artifactId>o-stock</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>O-Stock</name>
+    <name>o-stock</name>
     <description>Spring-Cloud</description>
     <properties>
         <java.version>11</java.version>
+        <docker.image.prefix>o-stock</docker.image.prefix>
     </properties>
     <dependencies>
         <dependency>
@@ -42,6 +43,13 @@
     </dependencies>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-extension</artifactId>
+                <version>1.4.13</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -55,6 +63,39 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <configuration>
+                    <repository>
+                        ${docker.image.prefix}/
+                        ${project.artifactId}
+                    </repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Internal repo</name>
+            <url>file://O-Stock</url>
+        </repository>
+    </distributionManagement>
 </project>
