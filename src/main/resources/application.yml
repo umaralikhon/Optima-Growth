@@ -4,3 +4,15 @@ management:
       enabled: true
       health:
         show-details: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/my_db
+    username: postgres
+    password: 1111
+
+  jpa:
+    show-sql: on
+    generate-ddl: on
+    hibernate:
+      ddl-auto: update
