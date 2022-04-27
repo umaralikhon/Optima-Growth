@@ -26,3 +26,4 @@ public class LicenseConfig {
         return messageSource;
     }
 }
+
