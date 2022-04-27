@@ -6,7 +6,7 @@ services:
     container_name: 'java-postgres'
     environment:
       - 'POSTGRES_USER=root'
-      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+      - 'POSTGRES_HOST_AUTH_MET HOD=trust'
       - 'POSTGRES_DB=my_db'
 
   app:
